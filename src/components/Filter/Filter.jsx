@@ -5,25 +5,27 @@ import { filterContacts } from '../../redux/phonebook/phonebook-actions';
 import styles from './Filter.module.css';
 import { getFilter } from '../../redux/phonebook/phonebook-selectors';
 
-const Filter = ({ filter, handleChange }) => {
+const Filter = ({ filter, inputHandler }) => {
   return (
-    <div>
-      <h3 className={styles.filterTitle}>Find contacts by name</h3>
-      <input
-        className={styles.filterInput}
-        name='filter'
-        type='text'
-        value={filter}
-        onChange={handleChange}
-        placeholder='...'
-      ></input>
-    </div>
+    <>
+      <h4 className={styles.title}>Find contacts by name </h4>
+      <label className={styles.label}>
+        <input
+          onChange={inputHandler}
+          type="text"
+          name="filter"
+          placeholder="Search name"
+          value={filter}
+          className={styles.input}
+        ></input>
+      </label>
+    </>
   );
 };
 
 Filter.propTypes = {
   filter: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  inputHandler: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -31,7 +33,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleChange: event => dispatch(filterContacts(event.target.value)),
+  inputHandler: event => dispatch(filterContacts(event.target.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

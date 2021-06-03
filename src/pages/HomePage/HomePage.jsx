@@ -4,10 +4,10 @@ import styles from './HomePage.module.css';
 class HomePage extends Component {
   state = {};
 
-  render () {
+  render() {
     return (
       <div className={styles.home}>
-        <h1>Welcome to my Phonebook Application</h1>
+        <h1>Welcome to My Phonebook </h1>
       </div>
     );
   }

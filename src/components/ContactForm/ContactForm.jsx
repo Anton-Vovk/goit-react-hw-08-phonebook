@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './ContactForm.module.css';
 import { connect } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { addContact } from '../../redux/phonebook/phonebook-operations';
 import { getContacts } from '../../redux/phonebook/phonebook-selectors';
 
@@ -15,15 +17,12 @@ class ContactForm extends Component {
     number: '',
   };
 
-  handleChange = event => {
-    const name = event.target.name;
-    const value = event.target.value;
-
+  inputHandler = ({ target }) => {
+    const { value, name } = target;
     this.setState({ [name]: value });
-    console.log(this.state);
   };
 
-  handleSubmit = event => {
+  SubmitHandler = event => {
     event.preventDefault();
     const { name, number } = this.state;
 
@@ -47,41 +46,44 @@ class ContactForm extends Component {
     this.setState({ name: '', number: '' });
   };
 
-  render () {
+  render() {
     const { name, number } = this.state;
-    const { handleSubmit, handleChange } = this;
     return (
-      <div className={styles.inputSection}>
-        <form onSubmit={handleSubmit}>
+      <>
+        <form className={styles.form} onSubmit={this.submitHandler}>
           <label className={styles.label}>
+            {' '}
             Name
-            <br />
             <input
-              className={styles.input}
-              name='name'
-              type='text'
+              onChange={this.inputHandler}
+              type="text"
+              name="name"
+              placeholder="Add name"
               value={name}
-              onChange={handleChange}
-              placeholder='...'
+              className={styles.input}
+              required
             ></input>
-            <label className={styles.label}>
-              Number
-              <br />
-              <input
-                className={styles.input}
-                name='number'
-                type='number'
-                value={number}
-                onChange={handleChange}
-                placeholder='...'
-              ></input>
-            </label>
-            <button className={styles.button} type='submit'>
-              Add contact
-            </button>
           </label>
+          <label className={styles.label}>
+            {' '}
+            Number
+            <input
+              onChange={this.inputHandler}
+              type="tel"
+              name="number"
+              placeholder="111-11-11"
+              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+              value={number}
+              className={styles.input}
+              required
+            ></input>
+          </label>
+          <button className={styles.button} type="submit">
+            Add contact
+          </button>
         </form>
-      </div>
+        <ToastContainer autoClose={3000} />
+      </>
     );
   }
 }

@@ -1,10 +1,10 @@
 import React, { lazy, Suspense, Component } from 'react';
 import { Switch, Redirect } from 'react-router-dom';
-import NavBar from './NavBar';
 import Loader from 'react-loader-spinner';
+import { connect } from 'react-redux';
+import NavBar from './NavBar';
 import routes from '../routes';
 import { getCurrentUser } from '../redux/auth/auth-operations';
-import { connect } from 'react-redux';
 import PublicRoute from './PublickRoute';
 import PrivateRoute from './PrivateRoute';
 import styles from './App.module.css';
@@ -24,11 +24,11 @@ const LoginPage = lazy(() =>
 );
 
 class App extends Component {
-  componentDidMount () {
+  componentDidMount() {
     this.props.onGetCurrentUser();
   }
 
-  render () {
+  render() {
     return (
       <>
         <NavBar />
@@ -36,10 +36,10 @@ class App extends Component {
           fallback={
             <Loader
               className={styles.Loader}
-              type='Oval'
-              color='#777'
-              height={280}
-              width={280}
+              type="Oval"
+              color="#171718"
+              height={200}
+              width={200}
             />
           }
         >
@@ -65,7 +65,6 @@ class App extends Component {
               component={LoginPage}
               redirectTo={routes.contacts}
             />
-
             <Redirect to={routes.home} />
           </Switch>
         </Suspense>

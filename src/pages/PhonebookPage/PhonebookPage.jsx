@@ -9,11 +9,11 @@ import { fetchContacts } from '../../redux/phonebook/phonebook-operations';
 import { getLoading } from '../../redux/phonebook/phonebook-selectors';
 
 class Phonebook extends Component {
-  componentDidMount () {
+  componentDidMount() {
     this.props.renderContacts();
   }
 
-  render () {
+  render() {
     const { isLoading } = this.props;
     return (
       <div className={styles.container}>
@@ -24,14 +24,12 @@ class Phonebook extends Component {
 
         <ContactList />
         {isLoading && (
-          <Loader type='Watch' color='#777' height={100} width={100} />
+          <Loader type="Watch" color="#777" height={100} width={100} />
         )}
       </div>
     );
   }
 }
-
-console.log(getLoading);
 
 const mapStateToProps = state => ({
   isLoading: getLoading(state),

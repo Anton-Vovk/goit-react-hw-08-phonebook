@@ -10,56 +10,55 @@ class RegisterForm extends Component {
     password: '',
   };
 
-  handleChange = event => {
+  inputHandler = event => {
     const { name, value } = event.target;
 
     this.setState({ [name]: value });
   };
 
-  handleSubmit = event => {
+  SubmitHandler = event => {
     event.preventDefault();
     this.props.onRegister(this.state);
-
     this.setState({ name: '', email: '', password: '' });
   };
 
-  render () {
+  render() {
     const { email, password, name } = this.state;
     return (
       <div>
-        <form onSubmit={this.handleSubmit} className={styles.form}>
+        <form onSubmit={this.SubmitHandler} className={styles.form}>
           <label className={styles.registrationLabel}>
-            <span className={styles.inputTitle}>enter name</span>
+            <span className={styles.inputTitle}>Name</span>
             <input
               className={styles.registrationInput}
-              type='text'
-              name='name'
+              type="text"
+              name="name"
               value={name}
-              onChange={this.handleChange}
+              onChange={this.inputHandler}
             ></input>
           </label>
           <label className={styles.registrationLabel}>
-            <span className={styles.inputTitle}>enter email</span>
+            <span className={styles.inputTitle}>Email</span>
 
             <input
               className={styles.registrationInput}
-              type='email'
-              name='email'
+              type="email"
+              name="email"
               value={email}
-              onChange={this.handleChange}
+              onChange={this.inputHandler}
             ></input>
           </label>
           <label className={styles.registrationLabel}>
-            <span className={styles.inputTitle}>enter password</span>
+            <span className={styles.inputTitle}>Password</span>
             <input
               className={styles.registrationInput}
-              type='password'
-              name='password'
+              type="password"
+              name="password"
               value={password}
-              onChange={this.handleChange}
+              onChange={this.inputHandler}
             ></input>
           </label>
-          <button className={styles.registrationButton} type='submit'>
+          <button className={styles.registrationButton} type="submit">
             Register
           </button>
         </form>

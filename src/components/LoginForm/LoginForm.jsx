@@ -9,40 +9,40 @@ class LoginForm extends Component {
     password: '',
   };
 
-  handleChange = event => {
+  inputHandler = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
-  handleSubmit = event => {
+  SubmitHandler = event => {
     event.preventDefault();
     this.props.onLogin(this.state);
     this.setState({ email: '', password: '' });
   };
 
-  render () {
+  render() {
     const { email, password } = this.state;
     return (
       <div>
-        <form className={styles.form} onSubmit={this.handleSubmit}>
+        <form className={styles.form} onSubmit={this.SubmitHandler}>
           <label className={styles.loginLabel}>
             <span className={styles.inputTitle}>enter email</span>
             <input
               className={styles.loginInput}
-              type='email'
-              name='email'
+              type="email"
+              name="email"
               value={email}
-              onChange={this.handleChange}
+              onChange={this.inputHandler}
             ></input>
           </label>
           <label className={styles.loginLabel}>
             <span className={styles.inputTitle}>enter password</span>
             <input
               className={styles.loginInput}
-              type='password'
-              name='password'
+              type="password"
+              name="password"
               value={password}
-              onChange={this.handleChange}
+              onChange={this.inputHandler}
             ></input>
           </label>
           <button className={styles.loginButton}>Login</button>
