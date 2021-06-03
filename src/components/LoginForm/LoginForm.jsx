@@ -26,7 +26,7 @@ class LoginForm extends Component {
       <div>
         <form className={styles.form} onSubmit={this.SubmitHandler}>
           <label className={styles.loginLabel}>
-            <span className={styles.inputTitle}>enter email</span>
+            <span className={styles.inputTitle}>Email</span>
             <input
               className={styles.loginInput}
               type="email"
@@ -36,7 +36,7 @@ class LoginForm extends Component {
             ></input>
           </label>
           <label className={styles.loginLabel}>
-            <span className={styles.inputTitle}>enter password</span>
+            <span className={styles.inputTitle}>Password</span>
             <input
               className={styles.loginInput}
               type="password"
