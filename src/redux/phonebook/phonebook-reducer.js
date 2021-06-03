@@ -39,6 +39,8 @@ const loading = createReducer(false, {
   [fetchContactsError]: () => false,
 });
 
+// const error = createReducer(null, {  });
+
 export default combineReducers({
   items,
   filter,

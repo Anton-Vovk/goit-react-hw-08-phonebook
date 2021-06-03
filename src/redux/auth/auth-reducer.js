@@ -46,6 +46,7 @@ const isLogged = createReducer(false, {
   [getCurrentUserError]: () => false,
   [logoutSucces]: () => false,
 });
+
 export default combineReducers({
   user,
   token,
