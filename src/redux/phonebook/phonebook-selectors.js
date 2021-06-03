@@ -4,7 +4,6 @@ const getLoading = state => state.phonebook.loading;
 const getContacts = state => state.phonebook.items;
 const getPhonebook = state => state.phonebook;
 const getFilter = state => state.phonebook.filter;
-
 const getFilteredContacts = createSelector(
   [getContacts, getFilter],
   (items, filter) => {

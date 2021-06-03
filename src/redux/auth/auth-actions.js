@@ -15,7 +15,6 @@ const logoutError = createAction('contacts/logoutError');
 const getCurrentUserRequest = createAction('contacts/currentUserRequest');
 const getCurrentUserSucces = createAction('contacts/currentUserSuccess');
 const getCurrentUserError = createAction('contacts/currentUserError');
-
 export {
   registerRequest,
   registerSucces,
