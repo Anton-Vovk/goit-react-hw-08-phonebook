@@ -9,7 +9,7 @@ const UserMenu = ({ name, avatar, onLogout }) => {
   return (
     <div className={styles.userNav}>
       <img src={avatar} width="30"></img>
-      <span>Welcome,{name}!</span>
+      <span>Welcome, {name}!</span>
       <button className={styles.userBtn} type="button" onClick={onLogout}>
         Log out
       </button>

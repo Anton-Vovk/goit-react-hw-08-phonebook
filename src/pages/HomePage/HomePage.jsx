@@ -7,7 +7,7 @@ class HomePage extends Component {
   render() {
     return (
       <div className={styles.home}>
-        <h1>Welcome to My Phonebook </h1>
+        <h1 className={styles.title}>Welcome to My Phonebook </h1>
       </div>
     );
   }

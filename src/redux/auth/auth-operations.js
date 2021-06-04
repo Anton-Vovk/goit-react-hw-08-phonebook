@@ -14,13 +14,13 @@ import {
   getCurrentUserError,
 } from './auth-actions';
 
-Axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
+Axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 const token = {
-  set (token) {
+  set(token) {
     Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
-  unset () {
+  unset() {
     Axios.defaults.headers.common.Authorization = '';
   },
 };

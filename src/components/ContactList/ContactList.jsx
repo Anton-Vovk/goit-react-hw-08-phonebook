@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { deleteContact } from '../../redux/phonebook/phonebook-operations';
 import { getFilteredContacts } from '../../redux/phonebook/phonebook-selectors';
-
 import styles from './ContactList.module.css';
 
 const ContactList = ({ contacts, deleteContact }) => {
