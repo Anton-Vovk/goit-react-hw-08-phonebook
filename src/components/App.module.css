@@ -4,6 +4,6 @@
   bottom: 50%;
   left: 50%;
   transform: translate(-50%, +50%);
-  background-color: rgba(15, 129, 133, 0);
+  color: #1e99e0;
   margin-top: 100px;
 }

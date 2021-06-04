@@ -37,7 +37,7 @@ class App extends Component {
             <Loader
               className={styles.Loader}
               type="Oval"
-              color="#171718"
+              color="#1e99e0"
               height={200}
               width={200}
             />
