@@ -1,4 +1,4 @@
-https://anton-vovk.github.io/goit-react-hw-08-phonebook/
+https://mr-vovk-goit-react-hw-08-phonebook.netlify.app/
 
 # Getting Started with Create React App
 
