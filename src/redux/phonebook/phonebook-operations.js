@@ -5,7 +5,6 @@ import {
   addContactError,
   deleteContactRequest,
   deleteContactSucces,
-  deleteContactError,
   fetchContactsRequest,
   fetchContactsSucces,
   fetchContactsError,

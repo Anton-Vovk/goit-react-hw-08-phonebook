@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './ContactForm.module.css';
 import { connect } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { addContact } from '../../redux/phonebook/phonebook-operations';
 import { getContacts } from '../../redux/phonebook/phonebook-selectors';
@@ -17,7 +17,7 @@ class ContactForm extends Component {
     number: '',
   };
 
-  inputHandler = ({ target }) => {
+  ChangeHandler = ({ target }) => {
     const { value, name } = target;
     this.setState({ [name]: value });
   };
@@ -50,39 +50,37 @@ class ContactForm extends Component {
     const { name, number } = this.state;
     return (
       <>
-        <form className={styles.form} onSubmit={this.submitHandler}>
+        <form className={styles.form} onSubmit={this.SubmitHandler}>
           <label className={styles.label}>
-            {' '}
             Name
             <input
-              onChange={this.inputHandler}
-              type="text"
-              name="name"
-              placeholder="Add name"
-              value={name}
               className={styles.input}
+              name="name"
+              type="text"
+              value={name}
+              onChange={this.ChangeHandler}
+              placeholder="Add name"
               required
             ></input>
           </label>
           <label className={styles.label}>
-            {' '}
             Number
             <input
-              onChange={this.inputHandler}
-              type="tel"
-              name="number"
-              placeholder="111-11-11"
-              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-              value={number}
               className={styles.input}
+              name="number"
+              type="tel"
+              value={number}
+              onChange={this.ChangeHandler}
+              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+              placeholder="111-11-11"
               required
             ></input>
           </label>
           <button className={styles.button} type="submit">
             Add contact
           </button>
+          <ToastContainer autoClose={3000} />
         </form>
-        <ToastContainer autoClose={3000} />
       </>
     );
   }

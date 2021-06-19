@@ -1,16 +1,12 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import {
-  registerRequest,
   registerSucces,
   registerError,
-  loginRequest,
   loginSucces,
   loginError,
-  logoutRequest,
   logoutSucces,
   logoutError,
-  getCurrentUserRequest,
   getCurrentUserSucces,
   getCurrentUserError,
 } from './auth-actions';
